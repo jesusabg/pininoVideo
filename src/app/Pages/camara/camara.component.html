@@ -1,0 +1,23 @@
+<div style="text-align:center">
+    <span class="m-1"></span>
+   
+    <br>
+    
+  </div>
+
+
+  <mat-card class="cam-card">
+    <mat-card-header>
+      <mat-card-title>Web-Cam App</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container-live-video">
+        <video class="video video-live" [ngStyle]="{ 'display': !finishedrecording ?  'inline-block' : 'none' }" #liveVideo autoplay></video>
+        <video class="video video-preview" [ngStyle]="{ 'display': finishedrecording ?  'inline-block' : 'none' }" controls #recordedVideo></video>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" *ngIf="!isRecording" (click)="IniciarGrabacion()">Iniciar grabacion</button>
+      <button mat-raised-button color="warn"  *ngIf="isRecording" (click)="openDialogConfirmacion()">Detener grabación</button>
+    </mat-card-actions>
+  </mat-card>
